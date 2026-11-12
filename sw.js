@@ -1,4 +1,4 @@
-const CACHE = "eli13-v2";
+const CACHE = "eli13-v3";
 const BASE = [
   "./",
   "index.html",
