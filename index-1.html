@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feliz Cumpleaños, Eli Kathaleia</title>
+<meta name="description" content="Una tarjeta de cumpleaños hecha con mucho amor para Eli Kathaleia">
+<meta name="theme-color" content="#ff8fb8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+:root{
+  --rosa:#ff8fb8; --rosa-osc:#e0509a; --lila:#b79cff; --crema:#fff6fb; --oro:#ffc94d;
+  --texto:#5a2d4f; --suave:#8a5b7e;
+  --script:"Snell Roundhand","Segoe Script","Brush Script MT","Lucida Handwriting",cursive;
+  --serif:Georgia,"Palatino Linotype",Palatino,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);color:var(--texto);background:var(--crema);
+  min-height:100vh;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 15% 10%,#ffd9ea 0,transparent 40%),
+    radial-gradient(circle at 85% 30%,#e6dcff 0,transparent 45%),
+    radial-gradient(circle at 20% 80%,#ffe9c9 0,transparent 40%);
+  background-attachment:fixed;
+}
+body.bloqueado{overflow:hidden}
+
+/* ---------- Portada / sobre ---------- */
+#portada{
+  position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:22px;text-align:center;padding:24px;
+  background:linear-gradient(160deg,#ffb3d1,#d9b8ff 60%,#ffd6a8);
+  transition:opacity .9s ease,visibility .9s;
+}
+#portada.fuera{opacity:0;visibility:hidden}
+#portada h1{font-family:var(--script);font-size:clamp(2.4rem,9vw,4.2rem);color:#fff;text-shadow:0 3px 14px rgba(160,40,110,.35);line-height:1.1}
+#portada p{color:#fff;font-size:1.05rem;text-shadow:0 1px 6px rgba(120,30,90,.4)}
+.regalo{
+  width:132px;height:132px;position:relative;cursor:pointer;border:none;background:none;
+  animation:bota 1.6s ease-in-out infinite;filter:drop-shadow(0 10px 14px rgba(120,30,90,.3));
+}
+.regalo .caja{position:absolute;left:10px;right:10px;bottom:0;height:78px;background:linear-gradient(#ff6fa8,#e0509a);border-radius:8px}
+.regalo .tapa{position:absolute;left:2px;right:2px;bottom:70px;height:32px;background:linear-gradient(#ff86b6,#ee5aa4);border-radius:8px}
+.regalo .cinta-v{position:absolute;left:50%;width:22px;margin-left:-11px;top:30px;bottom:0;background:linear-gradient(90deg,#ffe28a,#ffc94d,#ffe28a)}
+.regalo .moño{position:absolute;left:50%;top:6px;width:54px;height:30px;margin-left:-27px}
+.regalo .moño::before,.regalo .moño::after{content:"";position:absolute;top:0;width:26px;height:26px;border:7px solid #ffc94d;border-radius:50% 50% 0 50%}
+.regalo .moño::before{left:0;transform:rotate(-20deg)}
+.regalo .moño::after{right:0;transform:scaleX(-1) rotate(-20deg)}
+@keyframes bota{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.btn-abrir{
+  font-family:var(--serif);font-size:1.1rem;padding:14px 30px;border:none;border-radius:999px;cursor:pointer;
+  color:var(--rosa-osc);background:#fff;box-shadow:0 8px 22px rgba(120,30,90,.25);font-weight:bold;
+}
+.btn-abrir:active{transform:scale(.96)}
+
+/* ---------- Capa de pétalos ---------- */
+#petalos{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.petalo{position:absolute;top:-30px;opacity:.85;animation:cae linear infinite}
+@keyframes cae{to{transform:translateY(112vh) translateX(var(--dx)) rotate(540deg)}}
+
+main{position:relative;z-index:2}
+section{padding:64px 20px;max-width:760px;margin:0 auto;text-align:center}
+.titulo-sec{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--rosa-osc);margin-bottom:8px}
+.sub-sec{color:var(--suave);margin-bottom:28px}
+
+/* ---------- Héroe ---------- */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-top:30px}
+.pastel{font-size:5rem;animation:bota 2.4s ease-in-out infinite;filter:drop-shadow(0 8px 10px rgba(200,60,130,.25))}
+#hero .feliz{font-family:var(--script);font-size:clamp(2.2rem,8vw,3.4rem);color:var(--lila)}
+#hero h1{
+  font-family:var(--script);font-size:clamp(3.2rem,15vw,7rem);line-height:1;
+  background:linear-gradient(90deg,#ff6fa8,#b79cff,#ffb347,#ff6fa8);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:brillo 6s linear infinite;
+  padding:6px 10px;
+}
+@keyframes brillo{to{background-position:300% 0}}
+#hero .nota{color:var(--suave);font-style:italic;margin-top:6px}
+.flecha{margin-top:28px;font-size:1.8rem;color:var(--rosa-osc);animation:bota 1.4s infinite;text-decoration:none}
+
+/* ---------- Mensaje ---------- */
+.carta{
+  background:rgba(255,255,255,.85);border-radius:28px;padding:34px 26px;
+  box-shadow:0 16px 40px rgba(200,80,150,.18);border:2px dashed #ffc2dc;position:relative;
+}
+.carta::before,.carta::after{content:"💗";position:absolute;font-size:1.8rem}
+.carta::before{top:-16px;left:20px}.carta::after{bottom:-16px;right:20px}
+.carta p{font-size:1.12rem;line-height:1.85;margin-bottom:14px;text-align:center}
+.firma{font-family:var(--script);font-size:2rem;color:var(--rosa-osc);margin-top:18px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.ver{opacity:1;transform:none}
+
+/* ---------- Galería ---------- */
+.carrusel{position:relative;max-width:520px;margin:0 auto}
+.marco{
+  position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#fff;
+  box-shadow:0 18px 44px rgba(200,80,150,.28);border:8px solid #fff;
+}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.slide.act{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide .vacia{
+  width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(145deg,#ffd1e6,#e0d2ff);color:var(--rosa-osc);font-size:1rem;padding:20px
+}
+.slide .vacia span{font-size:3.4rem}
+.pie{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 12px;color:#fff;font-style:italic;
+  background:linear-gradient(transparent,rgba(110,20,80,.6));text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.9);color:var(--rosa-osc);font-size:1.4rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:3}
+.nav.ant{left:-8px}.nav.sig{right:-8px}
+.puntos{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.puntos i{width:10px;height:10px;border-radius:50%;background:#ffc2dc;transition:all .3s}
+.puntos i.act{background:var(--rosa-osc);transform:scale(1.35)}
+
+/* ---------- Juego ---------- */
+.juego-caja{
+  position:relative;max-width:440px;margin:0 auto;background:linear-gradient(#fff,#ffeef6);border-radius:26px;
+  box-shadow:0 18px 44px rgba(200,80,150,.25);border:6px solid #fff;overflow:hidden;touch-action:none;
+}
+canvas#lienzo{display:block;width:100%;height:auto;aspect-ratio:3/4;touch-action:none}
+.hud{display:flex;justify-content:space-between;padding:10px 16px;font-weight:bold;color:var(--rosa-osc);background:#fff}
+.velo{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:rgba(255,246,251,.93);padding:22px;text-align:center;
+}
+.velo.oculto{display:none}
+.velo h3{font-family:var(--script);font-size:2.2rem;color:var(--rosa-osc)}
+.velo p{line-height:1.6}
+.btn{font-family:var(--serif);font-size:1.05rem;padding:12px 28px;border:none;border-radius:999px;cursor:pointer;color:#fff;
+  background:linear-gradient(90deg,#ff6fa8,#b79cff);box-shadow:0 8px 20px rgba(200,80,150,.35);font-weight:bold}
+.btn:active{transform:scale(.96)}
+
+/* ---------- Pie ---------- */
+footer{padding:50px 20px 90px;text-align:center;color:var(--suave)}
+footer .fin{font-family:var(--script);font-size:2.4rem;color:var(--rosa-osc);margin-bottom:8px}
+
+/* ---------- Botón de música ---------- */
+#musica{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:54px;height:54px;border-radius:50%;
+  border:none;background:#fff;color:var(--rosa-osc);font-size:1.5rem;cursor:pointer;box-shadow:0 8px 20px rgba(120,30,90,.3);display:none
+}
+#musica.on{display:flex;align-items:center;justify-content:center}
+#musica.sonando{animation:gira 4s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+#confeti{position:fixed;inset:0;pointer-events:none;z-index:70}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+</style>
+</head>
+<body class="bloqueado">
+
+<!-- Portada -->
+<div id="portada">
+  <h1>Tienes un regalo,<br>Eli Kathaleia</h1>
+  <button class="regalo" id="regalo" aria-label="Abrir regalo">
+    <span class="caja"></span><span class="tapa"></span><span class="cinta-v"></span><span class="moño"></span>
+  </button>
+  <p>Hecho con todo mi cariño solo para ti</p>
+  <button class="btn-abrir" id="abrir">Toca para abrir 🎁</button>
+</div>
+
+<div id="petalos"></div>
+<canvas id="confeti"></canvas>
+<button id="musica" aria-label="Activar o silenciar la música">🎵</button>
+
+<main>
+  <section id="hero">
+    <div class="pastel">🎂</div>
+    <div class="feliz">¡Feliz Cumpleaños!</div>
+    <h1 id="nombre">Eli Kathaleia</h1>
+    <p class="nota">Hoy el mundo brilla más porque tú naciste ✨</p>
+    <a class="flecha" href="#mensaje" aria-label="Seguir">⌄</a>
+  </section>
+
+  <section id="mensaje">
+    <h2 class="titulo-sec">Un mensaje para ti</h2>
+    <p class="sub-sec">Desde lo más profundo de mi corazón</p>
+    <div class="carta reveal" id="carta"></div>
+  </section>
+
+  <section id="galeria">
+    <h2 class="titulo-sec">Nuestros momentos</h2>
+    <p class="sub-sec">Cada foto guarda un pedacito de mi alegría</p>
+    <div class="carrusel reveal">
+      <div class="marco" id="marco"></div>
+      <button class="nav ant" id="ant" aria-label="Foto anterior">‹</button>
+      <button class="nav sig" id="sig" aria-label="Foto siguiente">›</button>
+    </div>
+    <div class="puntos" id="puntos"></div>
+  </section>
+
+  <section id="juego">
+    <h2 class="titulo-sec">Atrapa la magia</h2>
+    <p class="sub-sec">Mueve la cesta y recoge corazones 💗 y estrellas ⭐ ¡Tienes 30 segundos!</p>
+    <div class="juego-caja reveal">
+      <div class="hud"><span>💗 <b id="puntos-j">0</b></span><span>⏱ <b id="tiempo-j">30</b></span><span>🏆 <b id="mejor-j">0</b></span></div>
+      <canvas id="lienzo" width="440" height="580"></canvas>
+      <div class="velo" id="velo">
+        <h3 id="velo-t">¿Lista, Eli?</h3>
+        <p id="velo-p">Arrastra con el dedo (o usa las flechas) para mover la cesta.<br>Cada corazón vale 1 y cada estrella vale 3.</p>
+        <button class="btn" id="jugar">¡Jugar!</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fin">Te quiero muchísimo</div>
+    <p id="firma-pie"></p>
+  </footer>
+</main>
+
+<script>
+/* =====================================================
+   PERSONALIZA AQUÍ  (todo lo importante está en este bloque)
+   ===================================================== */
+const CONFIG = {
+  nombre: "Eli Kathaleia",
+  mensaje: [
+    "Mi querida Eli Kathaleia:",
+    "Hoy celebramos el día en que llegaste a este mundo para llenarlo de luz, de risas y de ternura. Eres uno de los mayores regalos que la vida me ha dado.",
+    "Cada vez que te veo sonreír, mi corazón se llena de alegría. Eres inteligente, valiente y muy especial, y estoy muy orgulloso de la personita maravillosa en la que te estás convirtiendo.",
+    "Que este nuevo año de vida venga cargado de sueños cumplidos, aventuras hermosas, abrazos sinceros y mucha felicidad. Recuerda siempre que puedes lograr todo lo que te propongas.",
+    "Gracias por existir, mi princesa. Te amo hasta el cielo y de regreso. 💖"
+  ],
+  firma: "Con todo mi amor, tu abuelo",
+  // Fotos: copia tus imágenes a la carpeta "fotos" con estos nombres (o cambia los nombres aquí).
+  fotos: [
+    { src: "fotos/foto1.jpg", pie: "Mi princesa hermosa" },
+    { src: "fotos/foto2.jpg", pie: "Tu sonrisa ilumina todo" },
+    { src: "fotos/foto3.jpg", pie: "Momentos que atesoro" },
+    { src: "fotos/foto4.jpg", pie: "Siempre en mi corazón" },
+    { src: "fotos/foto5.jpg", pie: "Mi mayor alegría" },
+    { src: "fotos/foto6.jpg", pie: "Feliz cumpleaños, Eli" }
+  ],
+  // Si pones un archivo "musica.mp3" junto a index.html, se usará esa canción.
+  // Si no existe, suena una dulce melodía de cajita musical de "Cumpleaños Feliz".
+  musicaArchivo: "musica.mp3"
+};
+
+/* ---------- Utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = t => t.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+document.title = "Feliz Cumpleaños, " + CONFIG.nombre;
+$("#nombre").textContent = CONFIG.nombre;
+$("#firma-pie").textContent = CONFIG.firma;
+
+/* ---------- Mensaje ---------- */
+$("#carta").innerHTML = CONFIG.mensaje.map(p => "<p>" + esc(p) + "</p>").join("") +
+  '<div class="firma">' + esc(CONFIG.firma) + "</div>";
+
+/* ---------- Pétalos ---------- */
+(function petalos(){
+  const cont = $("#petalos"), icos = ["🌸","💗","✨","🌷","🦋"];
+  for (let i = 0; i < 16; i++){
+    const e = document.createElement("span");
+    e.className = "petalo";
+    e.textContent = icos[i % icos.length];
+    e.style.left = Math.random()*100 + "vw";
+    e.style.fontSize = (14 + Math.random()*16) + "px";
+    e.style.animationDuration = (9 + Math.random()*10) + "s";
+    e.style.animationDelay = (-Math.random()*18) + "s";
+    e.style.setProperty("--dx", (Math.random()*120 - 60) + "px");
+    cont.appendChild(e);
+  }
+})();
+
+/* ---------- Aparición al desplazarse ---------- */
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("ver"); }), {threshold:.15});
+document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+/* ---------- Galería ---------- */
+(function galeria(){
+  const marco = $("#marco"), puntos = $("#puntos");
+  let idx = 0, timer;
+  CONFIG.fotos.forEach((f, i) => {
+    const s = document.createElement("div");
+    s.className = "slide" + (i === 0 ? " act" : "");
+    const img = new Image();
+    img.alt = f.pie; img.loading = "lazy";
+    img.onerror = () => {
+      s.innerHTML = '<div class="vacia"><span>📷</span><b>Aquí va tu foto ' + (i+1) +
+        '</b><small>Guárdala como ' + esc(f.src) + '</small></div><div class="pie">' + esc(f.pie) + '</div>';
+    };
+    img.onload = () => { s.appendChild(img); const p = document.createElement("div"); p.className = "pie"; p.textContent = f.pie; s.appendChild(p); };
+    img.src = f.src;
+    marco.appendChild(s);
+    const d = document.createElement("i"); if (i === 0) d.className = "act"; puntos.appendChild(d);
+  });
+  const sl = () => marco.querySelectorAll(".slide"), pt = () => puntos.querySelectorAll("i");
+  function ir(n){
+    const total = CONFIG.fotos.length;
+    idx = (n + total) % total;
+    sl().forEach((s, i) => s.classList.toggle("act", i === idx));
+    pt().forEach((p, i) => p.classList.toggle("act", i === idx));
+  }
+  function auto(){ clearInterval(timer); timer = setInterval(() => ir(idx + 1), 4500); }
+  $("#ant").onclick = () => { ir(idx - 1); auto(); };
+  $("#sig").onclick = () => { ir(idx + 1); auto(); };
+  let x0 = null;
+  marco.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+  marco.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40){ ir(idx + (dx < 0 ? 1 : -1)); auto(); }
+    x0 = null;
+  });
+  auto();
+})();
+
+/* ---------- Confeti ---------- */
+const Confeti = (function(){
+  const c = $("#confeti"), g = c.getContext("2d");
+  let parts = [], corriendo = false;
+  const cols = ["#ff6fa8","#b79cff","#ffc94d","#7fd8ff","#ff9a8b","#9be7a5"];
+  function ajustar(){ c.width = innerWidth; c.height = innerHeight; }
+  addEventListener("resize", ajustar); ajustar();
+  function lanzar(n = 140){
+    for (let i = 0; i < n; i++) parts.push({
+      x: innerWidth/2 + (Math.random()-.5)*innerWidth*.4, y: innerHeight*.55,
+      vx: (Math.random()-.5)*14, vy: -Math.random()*16 - 4, r: 4 + Math.random()*5,
+      col: cols[i % cols.length], rot: Math.random()*6, vr: (Math.random()-.5)*.4, vida: 140 + Math.random()*60
+    });
+    if (!corriendo){ corriendo = true; requestAnimationFrame(paso); }
+  }
+  function paso(){
+    g.clearRect(0, 0, c.width, c.height);
+    parts.forEach(p => {
+      p.vy += .32; p.x += p.vx; p.y += p.vy; p.vx *= .99; p.rot += p.vr; p.vida--;
+      g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.fillStyle = p.col;
+      g.globalAlpha = Math.max(0, Math.min(1, p.vida/40));
+      g.fillRect(-p.r, -p.r/2, p.r*2, p.r); g.restore();
+    });
+    parts = parts.filter(p => p.vida > 0 && p.y < c.height + 30);
+    if (parts.length) requestAnimationFrame(paso); else { corriendo = false; g.clearRect(0, 0, c.width, c.height); }
+  }
+  return { lanzar };
+})();
+
+/* ---------- Música ---------- */
+const Musica = (function(){
+  const btn = $("#musica");
+  let ctx = null, master = null, modo = null, audio = null, activa = false, timerSint = null;
+  const BASE = 261.63; // Do central
+  const hz = st => BASE * Math.pow(2, st/12);
+  // Melodía: [semitonos, duración en tiempos]
+  const MEL = [
+    [0,.75],[0,.25],[2,1],[0,1],[5,1],[4,2],
+    [0,.75],[0,.25],[2,1],[0,1],[7,1],[5,2],
+    [0,.75],[0,.25],[12,1],[9,1],[5,1],[4,1],[2,2],
+    [10,.75],[10,.25],[9,1],[5,1],[7,1],[5,2]
+  ];
+  const ARM = [[0,4,7],[0,4,7],[5,9,12],[0,4,7]]; // acordes de acompañamiento
+  const T = .62;
+
+  function nota(f, t, dur, vol){
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = "triangle"; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol, t + .015);
+    g.gain.exponentialRampToValueAtTime(.0008, t + dur);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + .05);
+    // brillo de cajita musical (octava arriba, muy suave)
+    const o2 = ctx.createOscillator(), g2 = ctx.createGain();
+    o2.type = "sine"; o2.frequency.value = f * 2;
+    g2.gain.setValueAtTime(0, t);
+    g2.gain.linearRampToValueAtTime(vol * .35, t + .01);
+    g2.gain.exponentialRampToValueAtTime(.0005, t + dur * .6);
+    o2.connect(g2); g2.connect(master); o2.start(t); o2.stop(t + dur);
+  }
+  function ciclo(inicio){
+    let t = inicio;
+    MEL.forEach(([st, d]) => { nota(hz(st), t, Math.max(d*T*1.8, .9), .22); t += d * T; });
+    // acordes suaves al comienzo de cada frase
+    const frase = (MEL.reduce((a, m) => a + m[1], 0) * T) / 4;
+    ARM.forEach((ac, i) => ac.forEach(s => nota(hz(s - 12), inicio + i*frase, frase*1.3, .07)));
+    return t + 1.6 * T;
+  }
+  function programar(){
+    if (!activa) return;
+    const fin = ciclo(ctx.currentTime + .1);
+    timerSint = setTimeout(programar, (fin - ctx.currentTime - .5) * 1000);
+  }
+  async function iniciarSint(){
+    if (!ctx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      ctx = new AC(); master = ctx.createGain(); master.gain.value = .9;
+      const eco = ctx.createDelay(); eco.delayTime.value = .28;
+      const rt = ctx.createGain(); rt.gain.value = .28;
+      master.connect(ctx.destination); master.connect(eco); eco.connect(rt); rt.connect(eco); rt.connect(ctx.destination);
+    }
+    try { await ctx.resume(); } catch(e){}
+    modo = "sint"; activa = true; programar();
+  }
+  const SVG_ON = '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17V8l8-2v6.3A3.5 3.5 0 1 0 21 15V3z"/></svg>';
+  const SVG_OFF = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17V8l8-2v6.3" fill="currentColor" stroke="none" opacity=".35"/><path d="M3 3l18 18"/></svg>';
+  function marcar(){ btn.innerHTML = activa ? SVG_ON : SVG_OFF; btn.classList.toggle("sonando", activa); }
+
+  async function iniciar(){
+    btn.classList.add("on");
+    // 1) Intenta usar un archivo de música propio
+    try {
+      const r = await fetch(CONFIG.musicaArchivo, { method: "HEAD" });
+      if (r.ok){
+        audio = new Audio(CONFIG.musicaArchivo); audio.loop = true; audio.volume = .6;
+        await audio.play(); modo = "archivo"; activa = true; marcar(); return;
+      }
+    } catch(e){}
+    // 2) Si no hay archivo, usa la cajita musical sintetizada
+    await iniciarSint(); marcar();
+  }
+  async function alternar(){
+    if (activa){
+      activa = false; clearTimeout(timerSint);
+      if (modo === "archivo") audio.pause(); else if (ctx) await ctx.suspend();
+    } else {
+      activa = true;
+      if (modo === "archivo") { try { await audio.play(); } catch(e){} }
+      else if (modo === "sint"){ await ctx.resume(); programar(); }
+      else await iniciar();
+    }
+    marcar();
+  }
+  btn.addEventListener("click", alternar);
+  document.addEventListener("visibilitychange", () => {
+    if (!modo) return;
+    if (document.hidden){ if (modo === "archivo") audio.pause(); else if (ctx) ctx.suspend(); }
+    else if (activa){ if (modo === "archivo") audio.play().catch(()=>{}); else if (ctx){ ctx.resume(); } }
+  });
+  return { iniciar };
+})();
+
+/* ---------- Apertura del regalo ---------- */
+function abrirRegalo(){
+  const p = $("#portada");
+  if (p.classList.contains("fuera")) return;
+  p.classList.add("fuera");
+  document.body.classList.remove("bloqueado");
+  Musica.iniciar();
+  setTimeout(() => Confeti.lanzar(180), 350);
+  setTimeout(() => Confeti.lanzar(120), 1300);
+}
+$("#abrir").addEventListener("click", abrirRegalo);
+$("#regalo").addEventListener("click", abrirRegalo);
+
+/* ---------- Juego: Atrapa la magia ---------- */
+(function juego(){
+  const cv = $("#lienzo"), g = cv.getContext("2d");
+  const W = cv.width, H = cv.height;
+  const velo = $("#velo"), vt = $("#velo-t"), vp = $("#velo-p");
+  const elP = $("#puntos-j"), elT = $("#tiempo-j"), elM = $("#mejor-j");
+  const DURACION = 30;
+  let jugando = false, puntos = 0, restante = DURACION, objetos = [], chispas = [], ultimo = 0, spawn = 0, tick = 0;
+  const cesta = { x: W/2, y: H - 54, w: 96, h: 56, objetivo: W/2 };
+  let mejor = 0;
+  try { mejor = parseInt(localStorage.getItem("eli_mejor") || "0", 10) || 0; } catch(e){}
+  elM.textContent = mejor;
+
+  // Fondo de estrellitas
+  const fondo = Array.from({length: 26}, () => ({ x: Math.random()*W, y: Math.random()*H, r: 1 + Math.random()*2.2, f: Math.random()*6 }));
+
+  function corazon(x, y, s, col){
+    g.save(); g.translate(x, y); g.scale(s/30, s/30); g.fillStyle = col; g.beginPath();
+    g.moveTo(0, 10); g.bezierCurveTo(-26, -8, -14, -26, 0, -12); g.bezierCurveTo(14, -26, 26, -8, 0, 10); g.fill();
+    g.fillStyle = "rgba(255,255,255,.55)"; g.beginPath(); g.ellipse(-8, -12, 4, 2.4, -.6, 0, 7); g.fill(); g.restore();
+  }
+  function estrella(x, y, s, rot){
+    g.save(); g.translate(x, y); g.rotate(rot); g.fillStyle = "#ffc94d"; g.strokeStyle = "#ffe9a6"; g.lineWidth = 3; g.beginPath();
+    for (let i = 0; i < 10; i++){ const r = i % 2 ? s*.42 : s, a = Math.PI*i/5 - Math.PI/2; g.lineTo(Math.cos(a)*r, Math.sin(a)*r); }
+    g.closePath(); g.fill(); g.stroke(); g.restore();
+  }
+  function dibujarCesta(){
+    const { x, y, w, h } = cesta;
+    g.save(); g.translate(x, y);
+    g.fillStyle = "#ff9ec6"; g.beginPath(); g.moveTo(-w/2, -h/2 + 8); g.lineTo(w/2, -h/2 + 8); g.lineTo(w/2 - 12, h/2); g.lineTo(-w/2 + 12, h/2); g.closePath(); g.fill();
+    g.strokeStyle = "#fff"; g.lineWidth = 3;
+    for (let i = -2; i <= 2; i++){ g.beginPath(); g.moveTo(i*16, -h/2 + 10); g.lineTo(i*13, h/2 - 2); g.stroke(); }
+    g.fillStyle = "#e0509a"; g.fillRect(-w/2 - 2, -h/2 + 2, w + 4, 12);
+    g.strokeStyle = "#e0509a"; g.lineWidth = 5; g.beginPath(); g.arc(0, -h/2 + 6, w/2 - 6, Math.PI, 0); g.stroke();
+    g.restore();
+  }
+  function explotar(x, y, col){
+    for (let i = 0; i < 9; i++) chispas.push({ x, y, vx: (Math.random()-.5)*5, vy: -Math.random()*4 - 1, v: 24, col });
+  }
+  function actualizar(dt){
+    tick += dt;
+    cesta.x += (cesta.objetivo - cesta.x) * Math.min(1, dt*14);
+    cesta.x = Math.max(cesta.w/2, Math.min(W - cesta.w/2, cesta.x));
+    restante -= dt; elT.textContent = Math.max(0, Math.ceil(restante));
+    if (restante <= 0) return terminar();
+    spawn -= dt;
+    if (spawn <= 0){
+      const estr = Math.random() < .22;
+      const prisa = 1 + (DURACION - restante) / DURACION * .8;
+      objetos.push({ x: 24 + Math.random()*(W - 48), y: -30, v: (150 + Math.random()*90) * prisa, tipo: estr ? "e" : "c", rot: 0, s: estr ? 22 : 30 });
+      spawn = Math.max(.3, .75 - (DURACION - restante) * .012);
+    }
+    objetos.forEach(o => { o.y += o.v*dt; o.rot += dt*2.5; });
+    objetos = objetos.filter(o => {
+      const cerca = o.y > cesta.y - cesta.h/2 && o.y < cesta.y + cesta.h/2 && Math.abs(o.x - cesta.x) < cesta.w/2 + 6;
+      if (cerca){
+        puntos += o.tipo === "e" ? 3 : 1; elP.textContent = puntos;
+        explotar(o.x, o.y, o.tipo === "e" ? "#ffc94d" : "#ff6fa8");
+        return false;
+      }
+      return o.y < H + 40;
+    });
+    chispas.forEach(c => { c.x += c.vx; c.y += c.vy; c.vy += .25; c.v--; });
+    chispas = chispas.filter(c => c.v > 0);
+  }
+  function pintar(){
+    g.clearRect(0, 0, W, H);
+    const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, "#ffe3f0"); gr.addColorStop(1, "#e9deff");
+    g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    fondo.forEach(s => { g.globalAlpha = .4 + .4*Math.sin(tick*2 + s.f); g.fillStyle = "#fff"; g.beginPath(); g.arc(s.x, s.y, s.r, 0, 7); g.fill(); });
+    g.globalAlpha = 1;
+    objetos.forEach(o => o.tipo === "e" ? estrella(o.x, o.y, o.s, o.rot) : corazon(o.x, o.y, o.s, "#ff5c9a"));
+    chispas.forEach(c => { g.globalAlpha = c.v/24; g.fillStyle = c.col; g.beginPath(); g.arc(c.x, c.y, 3, 0, 7); g.fill(); });
+    g.globalAlpha = 1;
+    dibujarCesta();
+  }
+  function bucle(t){
+    if (!jugando) return;
+    const dt = Math.min(.05, (t - ultimo)/1000); ultimo = t;
+    actualizar(dt); if (jugando) { pintar(); requestAnimationFrame(bucle); }
+  }
+  function terminar(){
+    jugando = false; pintar();
+    let nuevo = false;
+    if (puntos > mejor){ mejor = puntos; nuevo = true; try { localStorage.setItem("eli_mejor", String(mejor)); } catch(e){} elM.textContent = mejor; }
+    vt.textContent = puntos >= 25 ? "¡Eres increíble! 🌟" : "¡Muy bien, Eli! 💖";
+    vp.innerHTML = "Atrapaste <b>" + puntos + "</b> puntos de amor." + (nuevo && puntos > 0 ? "<br>¡Nuevo récord! 🏆" : "") + "<br>¡Feliz cumpleaños!";
+    $("#jugar").textContent = "Jugar otra vez";
+    velo.classList.remove("oculto");
+    Confeti.lanzar(puntos >= 15 ? 160 : 80);
+  }
+  function empezar(){
+    puntos = 0; restante = DURACION; objetos = []; chispas = []; spawn = .3; tick = 0;
+    elP.textContent = "0"; elT.textContent = DURACION; cesta.x = cesta.objetivo = W/2;
+    velo.classList.add("oculto"); jugando = true; ultimo = performance.now(); requestAnimationFrame(bucle);
+  }
+  function mover(clientX){
+    const r = cv.getBoundingClientRect();
+    cesta.objetivo = (clientX - r.left) / r.width * W;
+  }
+  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); mover(e.clientX); });
+  cv.addEventListener("pointermove", e => mover(e.clientX));
+  addEventListener("keydown", e => {
+    if (!jugando) return;
+    if (e.key === "ArrowLeft") cesta.objetivo -= 70;
+    if (e.key === "ArrowRight") cesta.objetivo += 70;
+  });
+  $("#jugar").addEventListener("click", empezar);
+  pintar();
+})();
+
+/* ---------- PWA: service worker ---------- */
+if ("serviceWorker" in navigator){
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
