@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feliz Cumpleaños 13, Eli Kathaleia</title>
+<meta name="description" content="Una tarjeta de cumpleaños número 13 hecha con mucho amor por la abuelita Cecilia">
+<meta name="theme-color" content="#ff8fb8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+:root{
+  --rosa:#ff8fb8; --rosa-osc:#e0509a; --lila:#b79cff; --lila-osc:#8e6ee6; --crema:#fff6fb; --oro:#ffc94d;
+  --texto:#5a2d4f; --suave:#8a5b7e;
+  --script:"Snell Roundhand","Segoe Script","Brush Script MT","Lucida Handwriting",cursive;
+  --serif:Georgia,"Palatino Linotype",Palatino,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);color:var(--texto);background:var(--crema);
+  min-height:100vh;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 15% 10%,#ffd9ea 0,transparent 40%),
+    radial-gradient(circle at 85% 30%,#e6dcff 0,transparent 45%),
+    radial-gradient(circle at 20% 80%,#ffe9c9 0,transparent 40%);
+  background-attachment:fixed;
+}
+body.bloqueado{overflow:hidden}
+
+/* ---------- Portada ---------- */
+#portada{
+  position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:20px;text-align:center;padding:24px;
+  background:linear-gradient(160deg,#ffb3d1,#d9b8ff 60%,#ffd6a8);
+  transition:opacity .9s ease,visibility .9s;
+}
+#portada.fuera{opacity:0;visibility:hidden}
+#portada h1{font-family:var(--script);font-size:clamp(2.3rem,9vw,4rem);color:#fff;text-shadow:0 3px 14px rgba(160,40,110,.35);line-height:1.1}
+#portada .de{color:#fff;font-size:1.05rem;text-shadow:0 1px 6px rgba(120,30,90,.4)}
+.sello{
+  width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--script);font-size:3.2rem;color:#fff;
+  background:radial-gradient(circle at 30% 30%,#ffe28a,#ffb347);box-shadow:0 10px 24px rgba(120,30,90,.3);
+  border:4px solid #fff;animation:bota 1.8s ease-in-out infinite;cursor:pointer;
+}
+@keyframes bota{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.btn-abrir{
+  font-family:var(--serif);font-size:1.1rem;padding:14px 30px;border:none;border-radius:999px;cursor:pointer;
+  color:var(--rosa-osc);background:#fff;box-shadow:0 8px 22px rgba(120,30,90,.25);font-weight:bold;
+}
+.btn-abrir:active{transform:scale(.96)}
+
+/* ---------- Pétalos ---------- */
+#petalos{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.petalo{position:absolute;top:-30px;opacity:.85;animation:cae linear infinite}
+@keyframes cae{to{transform:translateY(112vh) translateX(var(--dx)) rotate(540deg)}}
+
+main{position:relative;z-index:2}
+section{padding:64px 20px;max-width:760px;margin:0 auto;text-align:center}
+.titulo-sec{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--rosa-osc);margin-bottom:8px}
+.sub-sec{color:var(--suave);margin-bottom:28px}
+
+/* ---------- Héroe ---------- */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding-top:30px}
+.pastel{font-size:4rem;animation:bota 2.4s ease-in-out infinite;filter:drop-shadow(0 8px 10px rgba(200,60,130,.25))}
+#hero .feliz{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--lila-osc)}
+.trece{
+  font-family:Georgia,serif;font-weight:bold;font-size:clamp(7rem,38vw,13rem);line-height:.95;
+  background:linear-gradient(120deg,#ff6fa8,#b79cff,#ffc94d,#ff6fa8);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:brillo 6s linear infinite;
+  filter:drop-shadow(0 8px 14px rgba(200,60,130,.25));
+}
+@keyframes brillo{to{background-position:300% 0}}
+#hero h1{font-family:var(--script);font-size:clamp(2.6rem,12vw,5.5rem);line-height:1.05;color:var(--rosa-osc);padding:4px 10px}
+#hero .nota{color:var(--suave);font-style:italic;margin-top:6px}
+.flecha{margin-top:24px;font-size:1.8rem;color:var(--rosa-osc);animation:bota 1.4s infinite;text-decoration:none}
+
+/* ---------- Carta ---------- */
+.carta{
+  background:rgba(255,255,255,.88);border-radius:28px;padding:34px 24px;
+  box-shadow:0 16px 40px rgba(200,80,150,.18);border:2px dashed #ffc2dc;position:relative;
+}
+.carta::before,.carta::after{content:"💗";position:absolute;font-size:1.8rem}
+.carta::before{top:-16px;left:20px}.carta::after{bottom:-16px;right:20px}
+.carta p{font-size:1.1rem;line-height:1.85;margin-bottom:14px;text-align:left}
+.carta p:first-child{font-family:var(--script);font-size:1.7rem;color:var(--rosa-osc);text-align:center}
+.firma{font-family:var(--script);font-size:2rem;color:var(--rosa-osc);margin-top:18px;text-align:center}
+.ps{font-style:italic;color:var(--suave);font-size:1rem;margin-top:12px;text-align:center}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.ver{opacity:1;transform:none}
+
+/* ---------- 13 razones ---------- */
+.razones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;margin:0 auto}
+.razon{
+  font-family:var(--serif);position:relative;border:none;border-radius:20px;cursor:pointer;padding:10px 8px;
+  min-height:92px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+  background:linear-gradient(145deg,#ff8fb8,#b79cff);box-shadow:0 8px 20px rgba(200,80,150,.25);
+  transition:transform .3s,background .3s;font-size:.78rem;line-height:1.35;
+}
+.razon .num{font-family:Georgia,serif;font-size:2.2rem;font-weight:bold;text-shadow:0 2px 8px rgba(120,30,90,.35)}
+.razon .txt{display:none}
+.razon.abierta{background:#fff;color:var(--texto);transform:scale(1.03);border:2px solid #ffc2dc}
+.razon.abierta .num{display:none}
+.razon.abierta .txt{display:block}
+.razon:active{transform:scale(.96)}
+.razon.ultima{grid-column:1/-1;min-height:84px}
+.contador-r{margin-top:16px;color:var(--suave);font-style:italic}
+
+/* ---------- Velas ---------- */
+.torta{position:relative;max-width:340px;margin:30px auto 0;padding-top:70px}
+.velas{position:absolute;top:0;left:0;right:0;display:flex;justify-content:center;gap:4px;padding:0 8px}
+.vela{
+  position:relative;width:16px;height:56px;border:none;background:none;cursor:pointer;flex:0 0 auto;padding:0;
+}
+.vela .palo{position:absolute;left:3px;right:3px;bottom:0;height:36px;border-radius:3px;
+  background:repeating-linear-gradient(135deg,#fff 0 5px,var(--c) 5px 10px)}
+.vela .llama{
+  position:absolute;left:50%;bottom:34px;width:12px;height:20px;margin-left:-6px;
+  background:radial-gradient(ellipse at 50% 75%,#fff7c2 0,#ffc94d 45%,#ff8a3d 80%);
+  border-radius:50% 50% 50% 50%/65% 65% 38% 38%;transform-origin:50% 100%;
+  animation:parpadeo .45s ease-in-out infinite alternate;filter:drop-shadow(0 0 6px rgba(255,190,70,.9));
+  transition:opacity .3s,transform .3s;
+}
+@keyframes parpadeo{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.9,1.12) rotate(3deg)}}
+.vela.apagada .llama{opacity:0;transform:scale(.1);animation:none}
+.vela.apagada::after{content:"";position:absolute;left:50%;bottom:36px;width:6px;height:6px;margin-left:-3px;border-radius:50%;
+  background:rgba(120,90,110,.5);animation:humo 1.4s ease-out forwards}
+@keyframes humo{to{transform:translateY(-34px) scale(3);opacity:0}}
+.pisos{position:relative}
+.piso{height:54px;border-radius:14px 14px 10px 10px;margin:0 auto;position:relative;box-shadow:0 10px 20px rgba(200,80,150,.2)}
+.piso.p1{width:78%;background:linear-gradient(#ffd0e4,#ffa9cc)}
+.piso.p2{width:100%;height:64px;background:linear-gradient(#e9dcff,#c8b0ff);margin-top:-6px}
+.piso::before{content:"";position:absolute;top:0;left:0;right:0;height:16px;border-radius:14px 14px 40% 40%;background:#fff;
+  -webkit-mask:radial-gradient(circle at 10px 100%,transparent 9px,#000 10px) 0 0/20px 100%;mask:radial-gradient(circle at 10px 100%,transparent 9px,#000 10px) 0 0/20px 100%}
+.plato{height:12px;width:112%;margin:-2px -6% 0;border-radius:50%;background:linear-gradient(#fff,#f0d9e8);box-shadow:0 8px 14px rgba(120,30,90,.2)}
+.deseo{min-height:3.2rem;margin-top:22px;font-family:var(--script);font-size:1.7rem;color:var(--rosa-osc);transition:opacity .6s}
+.fila-btn{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn{font-family:var(--serif);font-size:1.02rem;padding:12px 26px;border:none;border-radius:999px;cursor:pointer;color:#fff;
+  background:linear-gradient(90deg,#ff6fa8,#b79cff);box-shadow:0 8px 20px rgba(200,80,150,.35);font-weight:bold}
+.btn.sec{background:#fff;color:var(--rosa-osc)}
+.btn:active{transform:scale(.96)}
+
+/* ---------- Galería ---------- */
+.carrusel{position:relative;max-width:520px;margin:0 auto}
+.marco{
+  position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#fff;
+  box-shadow:0 18px 44px rgba(200,80,150,.28);border:8px solid #fff;
+}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.slide.act{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide .vacia{
+  width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(145deg,#ffd1e6,#e0d2ff);color:var(--rosa-osc);font-size:1rem;padding:20px
+}
+.slide .vacia span{font-size:3.4rem}
+.pie{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 12px;color:#fff;font-style:italic;
+  background:linear-gradient(transparent,rgba(110,20,80,.6));text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.9);color:var(--rosa-osc);font-size:1.4rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:3}
+.nav.ant{left:-8px}.nav.sig{right:-8px}
+.puntos{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.puntos i{width:10px;height:10px;border-radius:50%;background:#ffc2dc;transition:all .3s}
+.puntos i.act{background:var(--rosa-osc);transform:scale(1.35)}
+
+/* ---------- Juego ---------- */
+.juego-caja{
+  position:relative;max-width:440px;margin:0 auto;background:linear-gradient(#fff,#ffeef6);border-radius:26px;
+  box-shadow:0 18px 44px rgba(200,80,150,.25);border:6px solid #fff;overflow:hidden;touch-action:none;
+}
+canvas#lienzo{display:block;width:100%;height:auto;aspect-ratio:3/4;touch-action:none}
+.hud{display:flex;justify-content:space-between;padding:10px 16px;font-weight:bold;color:var(--rosa-osc);background:#fff}
+.velo{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:rgba(255,246,251,.93);padding:22px;text-align:center;
+}
+.velo.oculto{display:none}
+.velo h3{font-family:var(--script);font-size:2.2rem;color:var(--rosa-osc)}
+.velo p{line-height:1.6}
+
+/* ---------- Pie ---------- */
+footer{padding:50px 20px 90px;text-align:center;color:var(--suave)}
+footer .fin{font-family:var(--script);font-size:2.4rem;color:var(--rosa-osc);margin-bottom:8px}
+footer .abu{font-family:var(--script);font-size:1.8rem;color:var(--lila-osc);margin-top:6px}
+
+/* ---------- Música / confeti ---------- */
+#musica{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:54px;height:54px;border-radius:50%;
+  border:none;background:#fff;color:var(--rosa-osc);font-size:1.5rem;cursor:pointer;box-shadow:0 8px 20px rgba(120,30,90,.3);display:none
+}
+#musica.on{display:flex;align-items:center;justify-content:center}
+#musica.sonando{animation:gira 4s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+#confeti{position:fixed;inset:0;pointer-events:none;z-index:70}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+</style>
+</head>
+<body class="bloqueado">
+
+<!-- Portada -->
+<div id="portada">
+  <h1>Tienes una sorpresa,<br>Eli Kathaleia</h1>
+  <div class="sello" id="regalo" role="button" aria-label="Abrir sorpresa">13</div>
+  <p class="de">Hecha con todo mi cariño por tu abuelita Cecilia</p>
+  <button class="btn-abrir" id="abrir">Toca para abrir 🎁</button>
+</div>
+
+<div id="petalos"></div>
+<canvas id="confeti"></canvas>
+<button id="musica" aria-label="Activar o silenciar la música">🎵</button>
+
+<main>
+  <section id="hero">
+    <div class="pastel">🎂</div>
+    <div class="feliz">¡Feliz Cumpleaños!</div>
+    <div class="trece">13</div>
+    <h1 id="nombre">Eli Kathaleia</h1>
+    <p class="nota">Trece años de luz, risas y ternura ✨</p>
+    <a class="flecha" href="#mensaje" aria-label="Seguir">⌄</a>
+  </section>
+
+  <section id="mensaje">
+    <h2 class="titulo-sec">Una carta de tu abuelita</h2>
+    <p class="sub-sec">Escrita desde lo más profundo de mi corazón</p>
+    <div class="carta reveal" id="carta"></div>
+  </section>
+
+  <section id="razones">
+    <h2 class="titulo-sec">13 razones</h2>
+    <p class="sub-sec">Una por cada año que llevas iluminando mi vida. Toca cada una 💜</p>
+    <div class="razones reveal" id="grid-razones"></div>
+    <p class="contador-r" id="cont-r">Descubiertas: 0 de 13</p>
+  </section>
+
+  <section id="velas">
+    <h2 class="titulo-sec">Pide un deseo</h2>
+    <p class="sub-sec">Toca cada vela para apagarla (o sopla todas de una vez) 🕯️</p>
+    <div class="torta reveal">
+      <div class="velas" id="velas-fila"></div>
+      <div class="pisos"><div class="piso p1"></div><div class="piso p2"></div></div>
+      <div class="plato"></div>
+    </div>
+    <div class="deseo" id="deseo"></div>
+    <div class="fila-btn">
+      <button class="btn" id="soplar">Soplar 🌬️</button>
+      <button class="btn sec" id="reencender">Encender de nuevo</button>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2 class="titulo-sec">Nuestros momentos</h2>
+    <p class="sub-sec">Cada foto guarda un pedacito de mi alegría</p>
+    <div class="carrusel reveal">
+      <div class="marco" id="marco"></div>
+      <button class="nav ant" id="ant" aria-label="Foto anterior">‹</button>
+      <button class="nav sig" id="sig" aria-label="Foto siguiente">›</button>
+    </div>
+    <div class="puntos" id="puntos"></div>
+  </section>
+
+  <section id="juego">
+    <h2 class="titulo-sec">Atrapa la magia</h2>
+    <p class="sub-sec">Mueve la cesta y recoge corazones 💗 y estrellas ⭐ ¿Llegas a 13 puntos? Tienes 30 segundos.</p>
+    <div class="juego-caja reveal">
+      <div class="hud"><span>💗 <b id="puntos-j">0</b></span><span>⏱ <b id="tiempo-j">30</b></span><span>🏆 <b id="mejor-j">0</b></span></div>
+      <canvas id="lienzo" width="440" height="580"></canvas>
+      <div class="velo" id="velo">
+        <h3 id="velo-t">¿Lista, Eli?</h3>
+        <p id="velo-p">Arrastra con el dedo (o usa las flechas) para mover la cesta.<br>Cada corazón vale 1 y cada estrella vale 3.</p>
+        <button class="btn" id="jugar">¡Jugar!</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fin">Te quiero muchísimo</div>
+    <div class="abu" id="firma-pie"></div>
+    <p style="margin-top:10px">Feliz cumpleaños número 13 💖</p>
+  </footer>
+</main>
+
+<script>
+/* =====================================================
+   PERSONALIZA AQUÍ  (todo lo importante está en este bloque)
+   ===================================================== */
+const CONFIG = {
+  nombre: "Eli Kathaleia",
+  edad: 13,
+  abuela: "Cecilia",
+  mensaje: [
+    "Mi querida Eli Kathaleia:",
+    "Trece años. Parece que fue ayer cuando te tuve por primera vez en mis brazos, y hoy te miro y veo a una jovencita inteligente, valiente y con un corazón gigante.",
+    "Entrar a los trece es abrir una puerta nueva: llegan sueños más grandes, preguntas más profundas y decisiones importantes. No tengas miedo. Camina con la frente en alto, confía en ti y recuerda que siempre tendrás un lugar seguro en mi abrazo.",
+    "No necesitas ser perfecta para ser maravillosa. Equivócate, aprende, ríe fuerte, sueña en grande y cuida a quienes te quieren.",
+    "Que este año venga lleno de amigas leales, aventuras hermosas, música, buenas notas y muchísima felicidad. Gracias por ser mi nieta, mi alegría y mi mejor regalo. Te amo hasta el cielo y de regreso. 💖"
+  ],
+  firma: "Con todo mi amor, tu abuelita Cecilia",
+  postdata: "P.D. Eres más fuerte de lo que crees y más querida de lo que imaginas.",
+  razones: [
+    "Tu sonrisa ilumina cualquier lugar",
+    "Eres valiente, incluso con miedo",
+    "Tu risa es mi canción favorita",
+    "Tienes un corazón enorme y noble",
+    "Eres curiosa y siempre aprendes algo nuevo",
+    "Haces especiales los días normales",
+    "Eres auténtica: no te pareces a nadie",
+    "Cuando abrazas, el mundo se acomoda",
+    "Tus sueños son grandes y yo creo en cada uno",
+    "Sabes ser amiga de verdad",
+    "Tu creatividad me sorprende siempre",
+    "Cada año contigo es mi mejor regalo",
+    "Eres Eli Kathaleia, y no hay otra igual en el universo"
+  ],
+  deseo: "Que todos tus deseos se hagan realidad, mi niña hermosa ✨",
+  // Fotos: copia tus imágenes a la carpeta "fotos" con estos nombres (o cambia los nombres aquí).
+  fotos: [
+    { src: "fotos/1-katha-jethson-pq-viendo-tv.jpeg", pie: "Mi nieta hermosa" },
+    { src: "fotos/2-katha-pq-vestido-azul.jpeg", pie: "Tu sonrisa ilumina todo" },
+    { src: "fotos/3-katha-jethson-axxel-bici.jpeg", pie: "Momentos que atesoro" },
+    { src: "fotos/4-katha-jethson-pesebre.jpeg", pie: "Siempre en mi corazón" },
+    { src: "fotos/5-en-familia-pqs.jpeg", pie: "Mi mayor alegría" },
+    { src: "fotos/6-santa-martha-nonita.jpeg", pie: "Feliz cumpleaños 13, Eli" },
+    { src: "fotos/6-katha-jethson-axxel-pqs.jpeg", pie: "Eres única y especial" },
+    { src: "fotos/7-katha-jethson-axxel-pqs.jpeg", pie: "Mi nieta preciosa" },
+    { src: "fotos/8-katha-jethson-axxel-pqs.jpeg", pie: "Siempre juntas, mi niña" },
+    { src: "fotos/foto1.jpeg", pie: "Te amo hasta el cielo y de regreso" },
+    { src: "fotos/foto2.jpeg", pie: "Gracias por ser mi nieta"}  
+  ],
+  // Si pones un archivo "musica.mp3" junto a index.html, se usará esa canción.
+  // Si no existe, suena una dulce melodía de cajita musical de "Cumpleaños Feliz".
+  musicaArchivo: "Trece_razones.mp3"
+};
+
+/* ---------- Utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = t => t.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+document.title = "Feliz Cumpleaños " + CONFIG.edad + ", " + CONFIG.nombre;
+$("#nombre").textContent = CONFIG.nombre;
+$("#firma-pie").textContent = "Tu abuelita " + CONFIG.abuela;
+
+/* ---------- Carta ---------- */
+$("#carta").innerHTML = CONFIG.mensaje.map(p => "<p>" + esc(p) + "</p>").join("") +
+  '<div class="firma">' + esc(CONFIG.firma) + '</div><div class="ps">' + esc(CONFIG.postdata) + "</div>";
+
+/* ---------- Pétalos ---------- */
+(function petalos(){
+  const cont = $("#petalos"), icos = ["🌸","💗","✨","🌷","🦋","⭐"];
+  for (let i = 0; i < 18; i++){
+    const e = document.createElement("span");
+    e.className = "petalo";
+    e.textContent = icos[i % icos.length];
+    e.style.left = Math.random()*100 + "vw";
+    e.style.fontSize = (14 + Math.random()*16) + "px";
+    e.style.animationDuration = (9 + Math.random()*10) + "s";
+    e.style.animationDelay = (-Math.random()*18) + "s";
+    e.style.setProperty("--dx", (Math.random()*120 - 60) + "px");
+    cont.appendChild(e);
+  }
+})();
+
+/* ---------- Aparición al desplazarse ---------- */
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("ver"); }), {threshold:.15});
+document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+/* ---------- Confeti ---------- */
+const Confeti = (function(){
+  const c = $("#confeti"), g = c.getContext("2d");
+  let parts = [], corriendo = false;
+  const cols = ["#ff6fa8","#b79cff","#ffc94d","#7fd8ff","#ff9a8b","#9be7a5"];
+  function ajustar(){ c.width = innerWidth; c.height = innerHeight; }
+  addEventListener("resize", ajustar); ajustar();
+  function lanzar(n = 140){
+    for (let i = 0; i < n; i++) parts.push({
+      x: innerWidth/2 + (Math.random()-.5)*innerWidth*.4, y: innerHeight*.55,
+      vx: (Math.random()-.5)*14, vy: -Math.random()*16 - 4, r: 4 + Math.random()*5,
+      col: cols[i % cols.length], rot: Math.random()*6, vr: (Math.random()-.5)*.4, vida: 140 + Math.random()*60
+    });
+    if (!corriendo){ corriendo = true; requestAnimationFrame(paso); }
+  }
+  function paso(){
+    g.clearRect(0, 0, c.width, c.height);
+    parts.forEach(p => {
+      p.vy += .32; p.x += p.vx; p.y += p.vy; p.vx *= .99; p.rot += p.vr; p.vida--;
+      g.save(); g.translate(p.x, p.y); g.rotate(p.rot); g.fillStyle = p.col;
+      g.globalAlpha = Math.max(0, Math.min(1, p.vida/40));
+      g.fillRect(-p.r, -p.r/2, p.r*2, p.r); g.restore();
+    });
+    parts = parts.filter(p => p.vida > 0 && p.y < c.height + 30);
+    if (parts.length) requestAnimationFrame(paso); else { corriendo = false; g.clearRect(0, 0, c.width, c.height); }
+  }
+  return { lanzar };
+})();
+
+/* ---------- 13 razones ---------- */
+(function razones(){
+  const grid = $("#grid-razones"), cont = $("#cont-r");
+  let vistas = new Set();
+  CONFIG.razones.forEach((t, i) => {
+    const b = document.createElement("button");
+    b.className = "razon" + (i === CONFIG.razones.length - 1 ? " ultima" : "");
+    b.innerHTML = '<span class="num">' + (i + 1) + '</span><span class="txt">' + esc(t) + "</span>";
+    b.addEventListener("click", () => {
+      b.classList.toggle("abierta");
+      vistas.add(i);
+      cont.textContent = vistas.size === CONFIG.razones.length
+        ? "¡Las descubriste todas! Y aún me faltan millones 💖"
+        : "Descubiertas: " + vistas.size + " de " + CONFIG.razones.length;
+      if (vistas.size === CONFIG.razones.length && b.classList.contains("abierta")) Confeti.lanzar(120);
+    });
+    grid.appendChild(b);
+  });
+})();
+
+/* ---------- Velas ---------- */
+(function velas(){
+  const fila = $("#velas-fila"), msg = $("#deseo");
+  const cols = ["#ff6fa8","#b79cff","#ffc94d","#7fd8ff","#ff9a8b","#9be7a5"];
+  const n = CONFIG.edad;
+  let apagadas = 0, hecho = false;
+  for (let i = 0; i < n; i++){
+    const v = document.createElement("button");
+    v.className = "vela"; v.setAttribute("aria-label", "Vela " + (i + 1));
+    v.style.setProperty("--c", cols[i % cols.length]);
+    v.innerHTML = '<span class="llama"></span><span class="palo"></span>';
+    v.addEventListener("click", () => apagar(v));
+    fila.appendChild(v);
+  }
+  function apagar(v){
+    if (v.classList.contains("apagada")) return;
+    v.classList.add("apagada"); apagadas++;
+    if (apagadas === n && !hecho){
+      hecho = true;
+      msg.textContent = CONFIG.deseo;
+      Confeti.lanzar(200); setTimeout(() => Confeti.lanzar(120), 700);
+    }
+  }
+  $("#soplar").addEventListener("click", () => {
+    [...fila.children].forEach((v, i) => setTimeout(() => apagar(v), i * 130));
+  });
+  $("#reencender").addEventListener("click", () => {
+    [...fila.children].forEach(v => v.classList.remove("apagada"));
+    apagadas = 0; hecho = false; msg.textContent = "";
+  });
+})();
+
+/* ---------- Galería ---------- */
+(function galeria(){
+  const marco = $("#marco"), puntos = $("#puntos");
+  let idx = 0, timer;
+  CONFIG.fotos.forEach((f, i) => {
+    const s = document.createElement("div");
+    s.className = "slide" + (i === 0 ? " act" : "");
+    const img = new Image();
+    img.alt = f.pie; img.loading = "lazy";
+    img.onerror = () => {
+      s.innerHTML = '<div class="vacia"><span>📷</span><b>Aquí va tu foto ' + (i+1) +
+        '</b><small>Guárdala como ' + esc(f.src) + '</small></div><div class="pie">' + esc(f.pie) + '</div>';
+    };
+    img.onload = () => { s.appendChild(img); const p = document.createElement("div"); p.className = "pie"; p.textContent = f.pie; s.appendChild(p); };
+    img.src = f.src;
+    marco.appendChild(s);
+    const d = document.createElement("i"); if (i === 0) d.className = "act"; puntos.appendChild(d);
+  });
+  const sl = () => marco.querySelectorAll(".slide"), pt = () => puntos.querySelectorAll("i");
+  function ir(n){
+    const total = CONFIG.fotos.length;
+    idx = (n + total) % total;
+    sl().forEach((s, i) => s.classList.toggle("act", i === idx));
+    pt().forEach((p, i) => p.classList.toggle("act", i === idx));
+  }
+  function auto(){ clearInterval(timer); timer = setInterval(() => ir(idx + 1), 4500); }
+  $("#ant").onclick = () => { ir(idx - 1); auto(); };
+  $("#sig").onclick = () => { ir(idx + 1); auto(); };
+  let x0 = null;
+  marco.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+  marco.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40){ ir(idx + (dx < 0 ? 1 : -1)); auto(); }
+    x0 = null;
+  });
+  auto();
+})();
+
+/* ---------- Música ---------- */
+const Musica = (function(){
+  const btn = $("#musica");
+  let ctx = null, master = null, modo = null, audio = null, activa = false, timerSint = null;
+  const BASE = 261.63;
+  const hz = st => BASE * Math.pow(2, st/12);
+  const MEL = [
+    [0,.75],[0,.25],[2,1],[0,1],[5,1],[4,2],
+    [0,.75],[0,.25],[2,1],[0,1],[7,1],[5,2],
+    [0,.75],[0,.25],[12,1],[9,1],[5,1],[4,1],[2,2],
+    [10,.75],[10,.25],[9,1],[5,1],[7,1],[5,2]
+  ];
+  const ARM = [[0,4,7],[0,4,7],[5,9,12],[0,4,7]];
+  const T = .62;
+
+  function nota(f, t, dur, vol){
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = "triangle"; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(vol, t + .015);
+    g.gain.exponentialRampToValueAtTime(.0008, t + dur);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + .05);
+    const o2 = ctx.createOscillator(), g2 = ctx.createGain();
+    o2.type = "sine"; o2.frequency.value = f * 2;
+    g2.gain.setValueAtTime(0, t);
+    g2.gain.linearRampToValueAtTime(vol * .35, t + .01);
+    g2.gain.exponentialRampToValueAtTime(.0005, t + dur * .6);
+    o2.connect(g2); g2.connect(master); o2.start(t); o2.stop(t + dur);
+  }
+  function ciclo(inicio){
+    let t = inicio;
+    MEL.forEach(([st, d]) => { nota(hz(st), t, Math.max(d*T*1.8, .9), .22); t += d * T; });
+    const frase = (MEL.reduce((a, m) => a + m[1], 0) * T) / 4;
+    ARM.forEach((ac, i) => ac.forEach(s => nota(hz(s - 12), inicio + i*frase, frase*1.3, .07)));
+    return t + 1.6 * T;
+  }
+  function programar(){
+    if (!activa) return;
+    const fin = ciclo(ctx.currentTime + .1);
+    timerSint = setTimeout(programar, (fin - ctx.currentTime - .5) * 1000);
+  }
+  async function iniciarSint(){
+    if (!ctx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      ctx = new AC(); master = ctx.createGain(); master.gain.value = .9;
+      const eco = ctx.createDelay(); eco.delayTime.value = .28;
+      const rt = ctx.createGain(); rt.gain.value = .28;
+      master.connect(ctx.destination); master.connect(eco); eco.connect(rt); rt.connect(eco); rt.connect(ctx.destination);
+    }
+    try { await ctx.resume(); } catch(e){}
+    modo = "sint"; activa = true; programar();
+  }
+  const SVG_ON = '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17V8l8-2v6.3A3.5 3.5 0 1 0 21 15V3z"/></svg>';
+  const SVG_OFF = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17V8l8-2v6.3" fill="currentColor" stroke="none" opacity=".35"/><path d="M3 3l18 18"/></svg>';
+  function marcar(){ btn.innerHTML = activa ? SVG_ON : SVG_OFF; btn.classList.toggle("sonando", activa); }
+
+  async function iniciar(){
+    btn.classList.add("on");
+    try {
+      const r = await fetch(CONFIG.musicaArchivo, { method: "HEAD" });
+      if (r.ok){
+        audio = new Audio(CONFIG.musicaArchivo); audio.loop = true; audio.volume = .6;
+        await audio.play(); modo = "archivo"; activa = true; marcar(); return;
+      }
+    } catch(e){}
+    await iniciarSint(); marcar();
+  }
+  async function alternar(){
+    if (activa){
+      activa = false; clearTimeout(timerSint);
+      if (modo === "archivo") audio.pause(); else if (ctx) await ctx.suspend();
+    } else {
+      activa = true;
+      if (modo === "archivo") { try { await audio.play(); } catch(e){} }
+      else if (modo === "sint"){ await ctx.resume(); programar(); }
+      else await iniciar();
+    }
+    marcar();
+  }
+  btn.addEventListener("click", alternar);
+  document.addEventListener("visibilitychange", () => {
+    if (!modo) return;
+    if (document.hidden){ if (modo === "archivo") audio.pause(); else if (ctx) ctx.suspend(); }
+    else if (activa){ if (modo === "archivo") audio.play().catch(()=>{}); else if (ctx){ ctx.resume(); } }
+  });
+  return { iniciar };
+})();
+
+/* ---------- Apertura de la sorpresa ---------- */
+function abrirRegalo(){
+  const p = $("#portada");
+  if (p.classList.contains("fuera")) return;
+  p.classList.add("fuera");
+  document.body.classList.remove("bloqueado");
+  Musica.iniciar();
+  setTimeout(() => Confeti.lanzar(180), 350);
+  setTimeout(() => Confeti.lanzar(120), 1300);
+}
+$("#abrir").addEventListener("click", abrirRegalo);
+$("#regalo").addEventListener("click", abrirRegalo);
+
+/* ---------- Juego: Atrapa la magia ---------- */
+(function juego(){
+  const cv = $("#lienzo"), g = cv.getContext("2d");
+  const W = cv.width, H = cv.height;
+  const velo = $("#velo"), vt = $("#velo-t"), vp = $("#velo-p");
+  const elP = $("#puntos-j"), elT = $("#tiempo-j"), elM = $("#mejor-j");
+  const DURACION = 30;
+  let jugando = false, puntos = 0, restante = DURACION, objetos = [], chispas = [], ultimo = 0, spawn = 0, tick = 0;
+  const cesta = { x: W/2, y: H - 54, w: 96, h: 56, objetivo: W/2 };
+  let mejor = 0;
+  try { mejor = parseInt(localStorage.getItem("eli_mejor") || "0", 10) || 0; } catch(e){}
+  elM.textContent = mejor;
+
+  const fondo = Array.from({length: 26}, () => ({ x: Math.random()*W, y: Math.random()*H, r: 1 + Math.random()*2.2, f: Math.random()*6 }));
+
+  function corazon(x, y, s, col){
+    g.save(); g.translate(x, y); g.scale(s/30, s/30); g.fillStyle = col; g.beginPath();
+    g.moveTo(0, 10); g.bezierCurveTo(-26, -8, -14, -26, 0, -12); g.bezierCurveTo(14, -26, 26, -8, 0, 10); g.fill();
+    g.fillStyle = "rgba(255,255,255,.55)"; g.beginPath(); g.ellipse(-8, -12, 4, 2.4, -.6, 0, 7); g.fill(); g.restore();
+  }
+  function estrella(x, y, s, rot){
+    g.save(); g.translate(x, y); g.rotate(rot); g.fillStyle = "#ffc94d"; g.strokeStyle = "#ffe9a6"; g.lineWidth = 3; g.beginPath();
+    for (let i = 0; i < 10; i++){ const r = i % 2 ? s*.42 : s, a = Math.PI*i/5 - Math.PI/2; g.lineTo(Math.cos(a)*r, Math.sin(a)*r); }
+    g.closePath(); g.fill(); g.stroke(); g.restore();
+  }
+  function dibujarCesta(){
+    const { x, y, w, h } = cesta;
+    g.save(); g.translate(x, y);
+    g.fillStyle = "#ff9ec6"; g.beginPath(); g.moveTo(-w/2, -h/2 + 8); g.lineTo(w/2, -h/2 + 8); g.lineTo(w/2 - 12, h/2); g.lineTo(-w/2 + 12, h/2); g.closePath(); g.fill();
+    g.strokeStyle = "#fff"; g.lineWidth = 3;
+    for (let i = -2; i <= 2; i++){ g.beginPath(); g.moveTo(i*16, -h/2 + 10); g.lineTo(i*13, h/2 - 2); g.stroke(); }
+    g.fillStyle = "#e0509a"; g.fillRect(-w/2 - 2, -h/2 + 2, w + 4, 12);
+    g.strokeStyle = "#e0509a"; g.lineWidth = 5; g.beginPath(); g.arc(0, -h/2 + 6, w/2 - 6, Math.PI, 0); g.stroke();
+    g.restore();
+  }
+  function explotar(x, y, col){
+    for (let i = 0; i < 9; i++) chispas.push({ x, y, vx: (Math.random()-.5)*5, vy: -Math.random()*4 - 1, v: 24, col });
+  }
+  function actualizar(dt){
+    tick += dt;
+    cesta.x += (cesta.objetivo - cesta.x) * Math.min(1, dt*14);
+    cesta.x = Math.max(cesta.w/2, Math.min(W - cesta.w/2, cesta.x));
+    restante -= dt; elT.textContent = Math.max(0, Math.ceil(restante));
+    if (restante <= 0) return terminar();
+    spawn -= dt;
+    if (spawn <= 0){
+      const estr = Math.random() < .22;
+      const prisa = 1 + (DURACION - restante) / DURACION * .8;
+      objetos.push({ x: 24 + Math.random()*(W - 48), y: -30, v: (150 + Math.random()*90) * prisa, tipo: estr ? "e" : "c", rot: 0, s: estr ? 22 : 30 });
+      spawn = Math.max(.3, .75 - (DURACION - restante) * .012);
+    }
+    objetos.forEach(o => { o.y += o.v*dt; o.rot += dt*2.5; });
+    objetos = objetos.filter(o => {
+      const cerca = o.y > cesta.y - cesta.h/2 && o.y < cesta.y + cesta.h/2 && Math.abs(o.x - cesta.x) < cesta.w/2 + 6;
+      if (cerca){
+        puntos += o.tipo === "e" ? 3 : 1; elP.textContent = puntos;
+        explotar(o.x, o.y, o.tipo === "e" ? "#ffc94d" : "#ff6fa8");
+        return false;
+      }
+      return o.y < H + 40;
+    });
+    chispas.forEach(c => { c.x += c.vx; c.y += c.vy; c.vy += .25; c.v--; });
+    chispas = chispas.filter(c => c.v > 0);
+  }
+  function pintar(){
+    g.clearRect(0, 0, W, H);
+    const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, "#ffe3f0"); gr.addColorStop(1, "#e9deff");
+    g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    fondo.forEach(s => { g.globalAlpha = .4 + .4*Math.sin(tick*2 + s.f); g.fillStyle = "#fff"; g.beginPath(); g.arc(s.x, s.y, s.r, 0, 7); g.fill(); });
+    g.globalAlpha = 1;
+    objetos.forEach(o => o.tipo === "e" ? estrella(o.x, o.y, o.s, o.rot) : corazon(o.x, o.y, o.s, "#ff5c9a"));
+    chispas.forEach(c => { g.globalAlpha = c.v/24; g.fillStyle = c.col; g.beginPath(); g.arc(c.x, c.y, 3, 0, 7); g.fill(); });
+    g.globalAlpha = 1;
+    dibujarCesta();
+  }
+  function bucle(t){
+    if (!jugando) return;
+    const dt = Math.min(.05, (t - ultimo)/1000); ultimo = t;
+    actualizar(dt); if (jugando) { pintar(); requestAnimationFrame(bucle); }
+  }
+  function terminar(){
+    jugando = false; pintar();
+    let nuevo = false;
+    if (puntos > mejor){ mejor = puntos; nuevo = true; try { localStorage.setItem("eli_mejor", String(mejor)); } catch(e){} elM.textContent = mejor; }
+    const meta = puntos >= CONFIG.edad;
+    vt.textContent = meta ? "¡Meta de los 13 lograda! 🌟" : "¡Muy bien, Eli! 💖";
+    vp.innerHTML = "Atrapaste <b>" + puntos + "</b> puntos de amor de la abuelita " + esc(CONFIG.abuela) + "." +
+      (meta ? "" : "<br>Te faltaron " + (CONFIG.edad - puntos) + " para llegar a 13. ¿Otra vez?") +
+      (nuevo && puntos > 0 ? "<br>¡Nuevo récord! 🏆" : "") + "<br>¡Feliz cumpleaños!";
+    $("#jugar").textContent = "Jugar otra vez";
+    velo.classList.remove("oculto");
+    Confeti.lanzar(meta ? 160 : 70);
+  }
+  function empezar(){
+    puntos = 0; restante = DURACION; objetos = []; chispas = []; spawn = .3; tick = 0;
+    elP.textContent = "0"; elT.textContent = DURACION; cesta.x = cesta.objetivo = W/2;
+    velo.classList.add("oculto"); jugando = true; ultimo = performance.now(); requestAnimationFrame(bucle);
+  }
+  function mover(clientX){
+    const r = cv.getBoundingClientRect();
+    cesta.objetivo = (clientX - r.left) / r.width * W;
+  }
+  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); mover(e.clientX); });
+  cv.addEventListener("pointermove", e => mover(e.clientX));
+  addEventListener("keydown", e => {
+    if (!jugando) return;
+    if (e.key === "ArrowLeft") cesta.objetivo -= 70;
+    if (e.key === "ArrowRight") cesta.objetivo += 70;
+  });
+  $("#jugar").addEventListener("click", empezar);
+  pintar();
+})();
+
+/* ---------- PWA: service worker ---------- */
+if ("serviceWorker" in navigator){
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
